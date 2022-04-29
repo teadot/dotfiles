@@ -118,4 +118,9 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# activate fnm if exists
+if type fnm &>/dev/null
+then
+    eval "$(fnm env)"
+fi
 
