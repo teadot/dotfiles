@@ -1,3 +1,156 @@
 {
-    "python.formatting.provider": "black"
+    // dotfiles
+    // "dotfiles.repository": "git@github.com:teadot/dotfiles.git",
+    // "dotfiles.installCommand": "~/.dotfiles/vscode/install.sh",
+    // "dotfiles.targetPath": "~/.dotfiles",
+    // editor
+    "editor.fontFamily": "FiraCode Nerd Font Mono",
+    "editor.inlayHints.enabled": true,
+    "editor.inlayHints.fontFamily": "FiraCode Nerd Font Mono",
+    "editor.inlayHints.fontSize": 8,
+    "editor.accessibilitySupport": "off",
+    "editor.formatOnSave": true,
+    "editor.unicodeHighlight.invisibleCharacters": false,
+    "editor.fontSize": 14,
+    "editor.wordWrap": "on",
+    // git 
+    "git.ignoreMissingGitWarning": true,
+    "git.enableSmartCommit": true,
+    "git.autofetch": true,
+    "git.confirmSync": false,
+    "git.defaultCloneDirectory": "E:\\git-repos\\FGroup",
+    // python
+    // "python.poetryPath": "$HOME/.poetry/bin/poetry",
+    // "python.defaultInterpreterPath": "\\home\\torben\\.cache\\pypoetry\\virtualenvs\\poetry-test-KpRDvEpM-py3.8",
+    "python.formatting.provider": "black",
+    // remote container
+    // "remote.containers.dotfiles.installCommand": "~/.dotfiles/vscode/install.sh",
+    // "remote.containers.dotfiles.targetPath": "~/.dotfiles",
+    // "remote.containers.dotfiles.repository": "git@github.com:teadot/dotfiles.git",
+    "remote.containers.defaultExtensions": [
+        "eamodio.gitlens",
+        "mhutchie.git-graph"
+    ],
+    // terminal
+    "terminal.explorerKind": "external",
+    // "terminal.integrated.fontFamily": "consolas",
+    "terminal.integrated.fontSize": 12,
+    "terminal.integrated.defaultProfile.windows": "PowerShell",
+    "terminal.integrated.defaultProfile.linux": "bash",
+    "terminal.integrated.defaultProfile.osx": "bash",
+    "terminal.integrated.profiles.linux": {
+        "bash": {
+            "path": "bash",
+            "icon": "terminal-bash"
+        },
+        "zsh": {
+            "path": "zsh"
+        },
+        "fish": {
+            "path": "fish"
+        },
+        "tmux": {
+            "path": "tmux",
+            "icon": "terminal-tmux"
+        },
+        "pwsh": {
+            "path": "pwsh",
+            "icon": "terminal-powershell"
+        }
+    },
+    "terminal.integrated.profiles.osx": {
+        "bash": {
+            "path": "bash",
+            "args": [
+                "-l"
+            ],
+            "icon": "terminal-bash"
+        },
+        "zsh": {
+            "path": "zsh",
+            "args": [
+                "-l"
+            ]
+        },
+        "fish": {
+            "path": "fish",
+            "args": [
+                "-l"
+            ]
+        },
+        "tmux": {
+            "path": "tmux",
+            "icon": "terminal-tmux"
+        },
+        "pwsh": {
+            "path": "pwsh",
+            "icon": "terminal-powershell"
+        }
+    },
+    "terminal.integrated.profiles.windows": {
+        "PowerShell": {
+            "source": "PowerShell",
+            "icon": "terminal-powershell"
+        },
+        "Command Prompt": {
+            "path": [
+                "${env:windir}\\Sysnative\\cmd.exe",
+                "${env:windir}\\System32\\cmd.exe"
+            ],
+            "args": [],
+            "icon": "terminal-cmd"
+        },
+        "Git Bash": {
+            "source": "Git Bash"
+        }
+    },
+    // workbench
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter-notebook"
+    },
+    "workbench.productIconTheme": "fluent-icons",
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.colorTheme": "Visual Studio 2019 Dark",
+    // explorer
+    "explorer.confirmDragAndDrop": false,
+    // files
+    "files.eol": "\n",
+    // window
+    "window.restoreWindows": "none",
+    // extensions
+    "extensions.ignoreRecommendations": true,
+    "redhat.telemetry.enabled": false,
+    "yaml.format.enable": false,
+    "kite.showWelcomeNotificationOnStartup": false,
+    // language specific settings
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.suggest.insertMode": "replace",
+        "gitlens.codeLens.scopes": [
+            "document"
+        ]
+    },
+    "[css]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.suggest.insertMode": "replace",
+        "gitlens.codeLens.scopes": [
+            "document"
+        ]
+    },
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.quickSuggestions": {
+            "strings": true
+        },
+        "editor.suggest.insertMode": "replace",
+        "gitlens.codeLens.scopes": [
+            "document"
+        ]
+    }
 }
