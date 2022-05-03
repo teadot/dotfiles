@@ -8,8 +8,6 @@
 # for ssh logins, install and configure the libpam-umask package.
 #umask 022
 
-export PATH=/home/linuxbrew/.linuxbrew/bin/:$PATH
-
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
   # include .bashrc if it exists
@@ -28,6 +26,12 @@ if [ -d "$HOME/.local/bin" ] ; then
   PATH="$HOME/.local/bin:$PATH"
 fi
 
+# set PATH for brew
+if [ -d "/home/linuxbrew/.linuxbrew/bin/" ]; then
+  export PATH="/home/linuxbrew/.linuxbrew/bin/":$PATH
+fi
+
+# set autocomplete for brew
 if type brew &>/dev/null
 then
   HOMEBREW_PREFIX="$(brew --prefix)"
@@ -42,13 +46,21 @@ then
   fi
 fi
 
+# set autocomplete vor pyenv
 if type pyenv &>/dev/null
 then
   eval "$(pyenv init -)"
 fi
 
+# set envvars for dotnet
 if type dotnet &>/dev/null
 then
   export DOTNET_CLI_TELEMETRY_OPTOUT=1
-  export DOTNET_ROOT="/home/linuxbrew/.linuxbrew/opt/dotnet/libexec"
+
+  # if dotnet is installed via brew
+  if [[ -d "/home/linuxbrew/.linuxbrew/opt/dotnet/libexec/" ]];
+  then
+    export DOTNET_ROOT="/home/linuxbrew/.linuxbrew/opt/dotnet/libexec"
+  fi
+
 fi
