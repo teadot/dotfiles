@@ -45,9 +45,13 @@ then
   fi
 fi
 
-# pyenv install
-eval "$(pyenv init --path)"
-export GDK_SCALE=2 #GWSL
-export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0.0 #GWSL
-export PULSE_SERVER=tcp:$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}') #GWSL
-export GTK_THEME=Raleigh
+if type pyenv &>/dev/null
+then
+   eval "$(pyenv init -)"
+fi
+
+if type dotnet &>/dev/null
+then
+  export DOTNET_CLI_TELEMETRY_OPTOUT=1
+  export DOTNET_ROOT="/home/linuxbrew/.linuxbrew/opt/dotnet/libexec"
+fi
