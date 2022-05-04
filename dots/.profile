@@ -8,6 +8,8 @@
 # for ssh logins, install and configure the libpam-umask package.
 #umask 022
 
+FUNCTIONS_CORE_TOOLS_TELEMETRY_OPTOUT=1
+
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
   # include .bashrc if it exists
@@ -24,6 +26,11 @@ fi
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/.local/bin" ] ; then
   PATH="$HOME/.local/bin:$PATH"
+fi
+
+# set DOTFILES_DIR var
+if [ -d "$HOME/.dotfiles" ] ; then
+  DOTFILES_DIR="$HOME/.dotfiles"
 fi
 
 # set PATH for brew
@@ -58,9 +65,9 @@ then
   export DOTNET_CLI_TELEMETRY_OPTOUT=1
 
   # if dotnet is installed via brew
-  if [[ -d "/home/linuxbrew/.linuxbrew/opt/dotnet/libexec/" ]];
-  then
-    export DOTNET_ROOT="/home/linuxbrew/.linuxbrew/opt/dotnet/libexec"
-  fi
+  #if [[ -d "/home/linuxbrew/.linuxbrew/opt/dotnet/libexec/" ]];
+  #then
+  #  export DOTNET_ROOT="/home/linuxbrew/.linuxbrew/opt/dotnet/libexec"
+  #fi
 
 fi
