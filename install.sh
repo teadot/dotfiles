@@ -21,7 +21,7 @@ if grep -qi wsl2 /proc/version; then
   source ${DOTFILES_DIR}/install/wsl2.sh
 fi
 
-## intall latest git via ppa (https://git-scm.com/download/linux)
+## install latest git via ppa (https://git-scm.com/download/linux)
 if [[ "$VERSION_ID" == "16.04" ]]; then
     sudo add-apt-repository ppa:git-core/ppa --yes
 else
