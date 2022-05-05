@@ -26,21 +26,26 @@ sudo apt install --no-install-recommends build-essential gcc --yes
 curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | bash
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
-## install stow via homebrew
-brew install stow
+## install stuff via homebrew
+brew bundle --file=${DOTFILES_DIR}/install/Brewfile || true
+
+## check if stow is installed
+if ! brew ls --version stow > /dev/null; then
+    echo "*** Install stow to link dotfiles"  
+    brew install stow
+fi
 
 ## link dotfiles
 stow -vSt ${HOME} dots
 
-## install other stuff via homebrew
-brew bundle --file=${DOTFILES_DIR}/install/Brewfile || true
-
 ## if fnm is installed
 if brew ls --versions fnm > /dev/null; then
+    echo "*** lets install latest node.js LTS"
     eval "$(fnm env)"
     ## install latest lts node.js via fnm
     fnm install --lts
 
+    echo "*** install global node packages"
     ## install global npm packages
     npm install -g $(cat ${DOTFILES_DIR}/install/npmfile)
 fi
