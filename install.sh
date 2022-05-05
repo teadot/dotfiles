@@ -13,6 +13,11 @@ while true; do
     kill -0 "$$" || exit
 done &>/dev/null &
 
+## setup wsl2 before start
+if grep -qi wsl2 /proc/version; then
+  source ${DOTFILES_DIR}/install/wsl2.sh
+fi
+
 ## intall latest git via ppa (https://git-scm.com/download/linux)
 sudo add-apt-repository --ppa ppa:git-core/ppa --yes
 
@@ -20,6 +25,9 @@ sudo add-apt-repository --ppa ppa:git-core/ppa --yes
 sudo apt update
 sudo apt upgrade --yes
 sudo apt dist-upgrade --yes
+
+## install git
+sudo apt install --no-install-recommends git --yes
 
 ## install homebrew
 sudo apt install --no-install-recommends build-essential gcc --yes
