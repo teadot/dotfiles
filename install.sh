@@ -22,7 +22,7 @@ if grep -qi wsl2 /proc/version; then
 fi
 
 ## intall latest git via ppa (https://git-scm.com/download/linux)
-if [[ "$VERSION" == "16.04" ]]; then
+if [[ "$VERSION_ID" == "16.04" ]]; then
     sudo add-apt-repository ppa:git-core/ppa --yes
 else
     sudo add-apt-repository --ppa ppa:git-core/ppa --yes
