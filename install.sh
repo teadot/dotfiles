@@ -44,6 +44,12 @@ if ! brew ls --version stow > /dev/null; then
 fi
 
 ## link dotfiles
+files=$(cat ${DOTFILES_DIR}/install/unstowfiles)
+for file in $files; do
+  if [[ -f "${HOME}/${file}" ]]; then
+    mv ${HOME}/${file} ${HOME}/${file}.old
+  fi
+done
 stow -vSt ${HOME} dots
 
 ## if fnm is installed
