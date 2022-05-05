@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# to get version of os
+source /etc/os-release
+
 ## export dotfiles path
 export DOTFILES_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
@@ -19,7 +22,11 @@ if grep -qi wsl2 /proc/version; then
 fi
 
 ## intall latest git via ppa (https://git-scm.com/download/linux)
-sudo add-apt-repository --ppa ppa:git-core/ppa --yes
+if [[ "$VERSION" == "16.04" ]]; then
+    sudo add-apt-repository ppa:git-core/ppa --yes
+else
+    sudo add-apt-repository --ppa ppa:git-core/ppa --yes
+fi
 
 # upgrade the system
 sudo apt update
@@ -60,7 +67,7 @@ if brew ls --versions fnm > /dev/null; then
     fnm install --lts
 
     echo "*** install global node packages"
-    ## install global npm packages
+    ## install global node packages via npm
     npm install -g $(cat ${DOTFILES_DIR}/install/npmfile)
 fi
 
