@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# to get version of os
+## to get version of os
 source /etc/os-release
 
 ## export dotfiles path
@@ -28,7 +28,7 @@ else
     sudo add-apt-repository --ppa ppa:git-core/ppa --yes
 fi
 
-# upgrade the system
+## upgrade the system
 sudo apt update
 sudo apt upgrade --yes
 sudo apt dist-upgrade --yes
@@ -54,7 +54,7 @@ fi
 files=$(cat ${DOTFILES_DIR}/install/unstowfiles)
 for file in $files; do
   if [[ -f "${HOME}/${file}" ]]; then
-    mv ${HOME}/${file} ${HOME}/${file}.old
+    rm ${HOME}/${file}
   fi
 done
 stow -vSt ${HOME} dots
