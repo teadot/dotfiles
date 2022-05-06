@@ -53,6 +53,12 @@ then
   fi
 fi
 
+# init fnm
+if type fnm &>/dev/null
+then
+  eval "$(fnm env)"
+fi
+
 # set autocomplete vor pyenv
 if type pyenv &>/dev/null
 then
