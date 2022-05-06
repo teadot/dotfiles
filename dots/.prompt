@@ -82,6 +82,12 @@ bash_prompt_command() {
     echo -ne "\033]0;${P_PWD}\007"
   fi
 
+  PRETTY_NAME=Linux
+
+  if [[ -f "/usr/lib/os-release" ]]; then
+    source /usr/lib/os-release
+  fi
+
   # Parse Git branch name
   P_GIT=$(parse_git_branch)
 
