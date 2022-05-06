@@ -28,6 +28,11 @@ if [ -d "$HOME/.local/bin" ] ; then
   PATH="$HOME/.local/bin:$PATH"
 fi
 
+# source .prompt-file
+if [ -f "$HOME/.prompt" ]; then
+  . "$HOME/.prompt"
+fi
+
 # set DOTFILES_DIR var
 if [ -d "$HOME/.dotfiles" ] ; then
   DOTFILES_DIR="$HOME/.dotfiles"
