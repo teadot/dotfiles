@@ -1,8 +1,7 @@
 # Installation
 
 ```bash
-git clone https://TorbenChrist@dev.azure.com/TorbenChrist/dotfiles/_git/dotfiles .dotf
-iles
+git clone https://TorbenChrist@dev.azure.com/TorbenChrist/dotfiles/_git/dotfiles .dotfiles
 cd .dotfiles
 source install.sh
 ```
