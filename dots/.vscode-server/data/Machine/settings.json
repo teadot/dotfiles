@@ -5,7 +5,7 @@
     // "dotfiles.targetPath": "~/.dotfiles",
     // editor
     "editor.fontFamily": "FiraCode Nerd Font Mono",
-    "editor.inlayHints.enabled": true,
+    "editor.inlayHints.enabled": "on",
     "editor.inlayHints.fontFamily": "FiraCode Nerd Font Mono",
     "editor.inlayHints.fontSize": 8,
     "editor.accessibilitySupport": "off",
@@ -42,7 +42,7 @@
         "bash": {
             "path": "bash",
             "icon": "terminal-bash",
-            "args": ["-l"]
+            "args": ["-li"]
         },
         "zsh": {
             "path": "zsh"
@@ -111,7 +111,7 @@
     },
     "workbench.productIconTheme": "fluent-icons",
     "workbench.iconTheme": "material-icon-theme",
-    "workbench.colorTheme": "Visual Studio 2019 Dark",
+    "workbench.colorTheme": "Visual Studio Dark",
     // explorer
     "explorer.confirmDragAndDrop": false,
     // files
@@ -133,16 +133,10 @@
     "[html]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode",
         "editor.suggest.insertMode": "replace",
-        "gitlens.codeLens.scopes": [
-            "document"
-        ]
     },
     "[css]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode",
         "editor.suggest.insertMode": "replace",
-        "gitlens.codeLens.scopes": [
-            "document"
-        ]
     },
     "[json]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -150,8 +144,5 @@
             "strings": true
         },
         "editor.suggest.insertMode": "replace",
-        "gitlens.codeLens.scopes": [
-            "document"
-        ]
     }
 }
