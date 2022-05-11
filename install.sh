@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 
 ## export dotfiles path
-  export DOTFILES_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+export DOTFILES_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
-if [[ -f /.dockerenv]]; then
-  echo "##############################"
-  echo "##############################"
-  echo "###### DOCKER CONTAINER ######"
-  echo "##############################"
-  echo "##############################"
+## if we are inside a docker container
+if [[ -f /.dockerenv ]]; then
+  cp ${DOTFILES_DIR}/dots/.profile ${HOME}
+  cp ${DOTFILES_DIR}/dots/.prompt ${HOME}
+  source ${HOME}/.profile
+## any else unix system
 else
   ## to get version of os
   source /etc/os-release

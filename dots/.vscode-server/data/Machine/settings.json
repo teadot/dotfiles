@@ -41,7 +41,8 @@
     "terminal.integrated.profiles.linux": {
         "bash": {
             "path": "bash",
-            "icon": "terminal-bash"
+            "icon": "terminal-bash",
+            "args": ["-l"]
         },
         "zsh": {
             "path": "zsh"
