@@ -5,6 +5,8 @@ export DOTFILES_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null 
 
 ## if we are inside a docker container
 if [[ -f /.dockerenv ]]; then
+  cp ${DOTFILES_DIR}/dots/.prompt ${HOME}/.prompt
+  cp ${DOTFILES_DIR}/dots/.bash_aliases ${HOME}/.bash_aliases
   echo "source ${HOME}/.prompt; source ${HOME}/.bash_aliases" > ${HOME}/.bashrc
 ## any else unix system
 else
