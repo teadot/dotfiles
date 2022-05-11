@@ -10,6 +10,9 @@
 
 FUNCTIONS_CORE_TOOLS_TELEMETRY_OPTOUT=1
 
+# run ssh-agent
+#eval $(ssh-agent) &>/dev/null
+
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
   # include .bashrc if it exists
@@ -73,10 +76,20 @@ if type dotnet &>/dev/null
 then
   export DOTNET_CLI_TELEMETRY_OPTOUT=1
 
-  # if dotnet is installed via brew
-  #if [[ -d "/home/linuxbrew/.linuxbrew/opt/dotnet/libexec/" ]];
-  #then
-  #  export DOTNET_ROOT="/home/linuxbrew/.linuxbrew/opt/dotnet/libexec"
-  #fi
+  ## if dotnet is installed via brew
+  if [[ -d "/home/linuxbrew/.linuxbrew/opt/dotnet/libexec/" ]];
+  then
+    export DOTNET_ROOT="/home/linuxbrew/.linuxbrew/opt/dotnet/libexec"
+  fi
 
+fi
+
+if [ -z "$SSH_AUTH_SOCK" ]; then
+  # Check for a currently running instance of the agent
+  RUNNING_AGENT="`ps -ax | grep 'ssh-agent -s' | grep -v grep | wc -l | tr -d '[:space:]'`"
+  if [ "$RUNNING_AGENT" = "0" ]; then
+    # Launch a new instance of the agent
+    ssh-agent -s &> $HOME/.ssh/ssh-agent
+  fi
+  eval `cat $HOME/.ssh/ssh-agent` &>/dev/null
 fi

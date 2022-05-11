@@ -11,6 +11,8 @@
   df = diff
   g = grep -I
   lg = log -p
+  ph = push
+  pl = pull
   pp = !"echo 'Pull'; git pull; echo 'Push'; git push"
   rb = rbranch
   rv = review
