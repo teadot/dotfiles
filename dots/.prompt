@@ -100,7 +100,7 @@ bash_prompt_command() {
     P_EXIT+="${P_RED}✘ "
   fi
 
-  PS1="${P_BLUE}${P_TIME} ${P_WHITE}| ${P_USER} ${P_WHITE}@ ${P_HOST} ${P_WHITE}→ ${P_YELLOW}${PRETTY_NAME} ${P_WHITE}: ${P_PWD}${P_VIOLET}${P_GIT}${P_YELLOW}\n${P_WHITE}\$ ${P_RESET}"
+  PS1="${P_WHITE}[${P_BLUE}${P_TIME}${P_WHITE}] [${P_USER} ${P_WHITE}@ ${P_HOST} ${P_WHITE}→ ${P_YELLOW}${PRETTY_NAME}${P_WHITE}] [${P_GREEN}${P_PWD}${P_VIOLET}${P_GIT}${P_YELLOW}${P_WHITE}]\n\$ ${P_RESET}"
 }
 
 parse_git_branch() {
