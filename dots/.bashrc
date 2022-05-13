@@ -2,6 +2,9 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+# export vars for git bash indicator
+# https://blog.backslasher.net/git-prompt-variables.html
+# https://jon.sprig.gs/blog/post/1940
 export GIT_PS1_DESCRIBE_STYLE='contains'
 export GIT_PS1_SHOWCOLORHINTS='y'
 export GIT_PS1_SHOWDIRTYSTATE='y'
