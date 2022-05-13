@@ -93,14 +93,14 @@ bash_prompt_command() {
   fi
 
   # Parse Git branch name
-  P_GIT=$(parse_git_branch)
+  P_GIT_BRANCH=$(git branch --show-current 2>/dev/null)
 
   # Exit code
   if [[ $EXIT_CODE != 0 ]]; then
     P_EXIT+="${P_RED}✘ "
   fi
 
-  PS1="${P_WHITE}[${P_BLUE}${P_TIME}${P_WHITE}] [${P_USER} ${P_WHITE}@ ${P_HOST} ${P_WHITE}→ ${P_YELLOW}${PRETTY_NAME}${P_WHITE}] [${P_GREEN}${P_PWD}${P_VIOLET}${P_GIT}${P_YELLOW}${P_WHITE}]\n\$ ${P_RESET}"
+  PS1="${P_WHITE}[${P_BLUE}${P_TIME}${P_WHITE}] [${P_USER} ${P_WHITE}@ ${P_HOST} ${P_WHITE}→ ${P_YELLOW}${PRETTY_NAME}${P_WHITE}] [${P_GREEN}${P_PWD}${P_VIOLET}$(__git_ps1)${P_YELLOW}${P_WHITE}]\n${P_RED}❯ ${P_RESET}"
 }
 
 parse_git_branch() {

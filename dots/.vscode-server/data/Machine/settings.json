@@ -1,8 +1,4 @@
 {
-    // dotfiles
-    // "dotfiles.repository": "git@github.com:teadot/dotfiles.git",
-    // "dotfiles.installCommand": "~/.dotfiles/vscode/install.sh",
-    // "dotfiles.targetPath": "~/.dotfiles",
     // editor
     "editor.fontFamily": "FiraCode Nerd Font Mono",
     "editor.inlayHints.enabled": "on",
@@ -24,9 +20,10 @@
     // "python.defaultInterpreterPath": "\\home\\torben\\.cache\\pypoetry\\virtualenvs\\poetry-test-KpRDvEpM-py3.8",
     "python.formatting.provider": "black",
     // remote container
-    // "remote.containers.dotfiles.installCommand": "~/.dotfiles/vscode/install.sh",
-    // "remote.containers.dotfiles.targetPath": "~/.dotfiles",
-    // "remote.containers.dotfiles.repository": "git@github.com:teadot/dotfiles.git",
+    "remote.containers.dotfiles.installCommand": "~/.dotfiles/install.sh",
+    "remote.containers.dotfiles.targetPath": "~/.dotfiles",
+    "remote.containers.dotfiles.repository": "git@ssh.dev.azure.com:v3/TorbenChrist/dotfiles/dotfiles",
+    "remote.containers.copyGitConfig": true,
     "remote.containers.defaultExtensions": [
         "eamodio.gitlens",
         "mhutchie.git-graph"
@@ -144,5 +141,8 @@
             "strings": true
         },
         "editor.suggest.insertMode": "replace",
+    },
+    "[python]": {
+        "editor.rulers": [79]
     }
 }
