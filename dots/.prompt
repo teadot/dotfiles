@@ -50,8 +50,8 @@ _bash_prompt_config() {
   local WHITE_BOLD="${ESC_OPEN}${BOLD}$(_setaf 7)${ESC_CLOSE}"
 
   # Expose the variables we need in prompt command
-  P_USER=${BRIGHT_YELLOW}${USER_SYMBOL}
-  P_HOST=${BRIGHT_YELLOW}${HOST_SYMBOL}
+  P_USER=${BLUE}${USER_SYMBOL}
+  P_HOST=${BLUE}${HOST_SYMBOL}
   P_WHITE=${WHITE}
   P_GREEN=${BRIGHT_GREEN}
   P_YELLOW=${BRIGHT_YELLOW}
@@ -100,7 +100,8 @@ bash_prompt_command() {
     P_EXIT+="${P_RED}✘ "
   fi
 
-  PS1="\n${P_WHITE}┌─[${P_BLUE}${P_TIME}${P_WHITE}]─[${P_USER} ${P_WHITE}@ ${P_HOST} ${P_WHITE}→ ${P_YELLOW}${PRETTY_NAME}${P_WHITE}]─[${P_GREEN}${P_PWD}${P_VIOLET}$(__git_ps1)${P_YELLOW}${P_WHITE}]\n└► ${P_RESET}"
+#  PS1="\n${P_WHITE}┌─[${P_BLUE}${P_TIME}${P_WHITE}]─[${P_USER} ${P_WHITE}@ ${P_HOST} ${P_WHITE}→ ${P_YELLOW}${PRETTY_NAME}${P_WHITE}]─[${P_GREEN}${P_PWD}${P_VIOLET}$(__git_ps1)${P_YELLOW}${P_WHITE}]\n└► ${P_RESET}"
+  PS1="\n${P_WHITE}┌─[${P_USER} ${P_WHITE}@ ${P_HOST} ${P_WHITE}→ ${P_BLUE}${PRETTY_NAME}${P_WHITE}]─[${P_YELLOW}${P_PWD}${P_VIOLET}$(__git_ps1)${P_YELLOW}${P_WHITE}]\n└► ${P_RESET}"
 }
 
 parse_git_branch() {
