@@ -2,15 +2,7 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
-# export vars for git bash indicator
-# https://blog.backslasher.net/git-prompt-variables.html
-# https://jon.sprig.gs/blog/post/1940
-export GIT_PS1_DESCRIBE_STYLE='contains'
-export GIT_PS1_SHOWCOLORHINTS='y'
-export GIT_PS1_SHOWDIRTYSTATE='y'
-export GIT_PS1_SHOWSTASHSTATE='y'
-export GIT_PS1_SHOWUNTRACKEDFILES='y'
-export GIT_PS1_SHOWUPSTREAM='auto'
+
 
 # If not running interactively, don't do anything
 case $- in
@@ -66,9 +58,11 @@ if [ -n "$force_color_prompt" ]; then
   fi
 fi
 
+
+
 if [ "$color_prompt" = yes ]; then
   . ${HOME}/.prompt
-  # PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+  # PS1="\[\e[1;33m\]┌$(eval printf %.0s─ '{2..'"${COLUMNS:-$(tput cols)}"\}; echo)\n├─ \u@\h \w\n└─ \[\e[1;36m\][\@ \d] \$\[\e[m\] "
 else
   PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -133,6 +127,26 @@ fi
 if type fnm &>/dev/null
 then
   eval "$(fnm env)"
+fi
+
+# set PATH for brew
+if [ -d "/home/linuxbrew/.linuxbrew/bin/" ]; then
+  export PATH="/home/linuxbrew/.linuxbrew/bin/":$PATH
+fi
+
+if [ -f "/home/linuxbrew/.linuxbrew/opt/bash-git-prompt/share/gitprompt.sh" ]; then
+  __GIT_PROMPT_DIR="/home/linuxbrew/.linuxbrew/opt/bash-git-prompt/share"
+  source "/home/linuxbrew/.linuxbrew/opt/bash-git-prompt/share/gitprompt.sh"
+
+  # export vars for git bash indicator
+  # https://blog.backslasher.net/git-prompt-variables.html
+  # https://jon.sprig.gs/blog/post/1940
+  export GIT_PS1_DESCRIBE_STYLE='contains'
+  export GIT_PS1_SHOWCOLORHINTS='y'
+  export GIT_PS1_SHOWDIRTYSTATE='y'
+  export GIT_PS1_SHOWSTASHSTATE='y'
+  export GIT_PS1_SHOWUNTRACKEDFILES='y'
+  export GIT_PS1_SHOWUPSTREAM='auto'
 fi
 
 fix_wsl2_interop() {

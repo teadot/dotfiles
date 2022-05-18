@@ -14,19 +14,20 @@
     "git.enableSmartCommit": true,
     "git.autofetch": true,
     "git.confirmSync": false,
-    "git.defaultCloneDirectory": "E:\\git-repos\\FGroup",
+    "git.defaultCloneDirectory": "~/projects",
     // python
     // "python.poetryPath": "$HOME/.poetry/bin/poetry",
     // "python.defaultInterpreterPath": "\\home\\torben\\.cache\\pypoetry\\virtualenvs\\poetry-test-KpRDvEpM-py3.8",
     "python.formatting.provider": "black",
     // remote container
-    "remote.containers.dotfiles.installCommand": "~/.dotfiles/install.sh",
-    "remote.containers.dotfiles.targetPath": "~/.dotfiles",
-    "remote.containers.dotfiles.repository": "git@ssh.dev.azure.com:v3/TorbenChrist/dotfiles/dotfiles",
+    // "remote.containers.dotfiles.installCommand": "~/.dotfiles/install.sh",
+    // "remote.containers.dotfiles.targetPath": "~/.dotfiles",
+    // "remote.containers.dotfiles.repository": "git@ssh.dev.azure.com:v3/TorbenChrist/dotfiles/dotfiles",
     "remote.containers.copyGitConfig": true,
     "remote.containers.defaultExtensions": [
         "eamodio.gitlens",
-        "mhutchie.git-graph"
+        "mhutchie.git-graph",
+        "esbenp.prettier-vscode"
     ],
     // terminal
     "terminal.explorerKind": "external",
@@ -122,10 +123,12 @@
     "kite.showWelcomeNotificationOnStartup": false,
     // language specific settings
     "[javascript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.rulers": [80]
     },
     "[typescript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.rulers": [80]
     },
     "[html]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode",

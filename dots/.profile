@@ -32,9 +32,9 @@ if [ -d "$HOME/.local/bin" ] ; then
 fi
 
 # source .prompt-file
-if [ -f "$HOME/.prompt" ]; then
-  . "$HOME/.prompt"
-fi
+#if [ -f "$HOME/.prompt" ]; then
+#  . "$HOME/.prompt"
+#fi
 
 # set DOTFILES_DIR var
 if [ -d "$HOME/.dotfiles" ] ; then
