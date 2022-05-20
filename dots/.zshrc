@@ -78,11 +78,12 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+	docker
 	git
-	zsh-autosuggestions
-	zsh-completions
 	kubectl
 	ssh-agent
+	zsh-autosuggestions
+	zsh-completions
 )
 
 fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
@@ -130,6 +131,19 @@ fi
 if type pyenv &>/dev/null
 then
   eval "$(pyenv init -)"
+fi
+
+# set envvars for dotnet
+if type dotnet &>/dev/null
+then
+  export DOTNET_CLI_TELEMETRY_OPTOUT=1
+
+  ## if dotnet is installed via brew
+  if [[ -d "/home/linuxbrew/.linuxbrew/opt/dotnet/libexec/" ]];
+  then
+    export DOTNET_ROOT="/home/linuxbrew/.linuxbrew/opt/dotnet/libexec"
+  fi
+
 fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
