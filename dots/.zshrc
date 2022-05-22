@@ -116,6 +116,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+source $HOME/.zsh_aliases
+
 # set PATH for brew
 if [ -d "/home/linuxbrew/.linuxbrew/bin/" ]; then
   path+=("/home/linuxbrew/.linuxbrew/bin/")
