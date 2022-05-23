@@ -66,6 +66,13 @@ else
   done
   stow -vSt ${HOME} dots
 
+  ## install oh-my-zsh
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+  ## install zsh plugins
+  git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+  git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions
+
   ## if fnm is installed
   if brew ls --versions fnm > /dev/null; then
       echo "*** lets install latest node.js LTS"

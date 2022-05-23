@@ -11,11 +11,27 @@ fi
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
+# set PATH for brew
+if [[ -d "/home/linuxbrew/.linuxbrew/bin/" ]]; then
+  path+="/home/linuxbrew/.linuxbrew/bin/"
+  # export PATH
+
+  # source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+  # fpath+=$(brew --prefix)/share/zsh-completions
+
+  # rm -f ${HOME}/.zcompdump
+  # autoload -Uz compinit
+  # compinit
+fi
+
+
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="powerlevel10k/powerlevel10k"
+# ZSH_THEME="powerlevel10k/powerlevel10k"
+source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -77,7 +93,10 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
+# fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-autosuggestions
+
 plugins=(
+  brew
   docker
   git
   git-auto-fetch
@@ -118,11 +137,6 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 source $HOME/.zsh_aliases
-
-# set PATH for brew
-if [ -d "/home/linuxbrew/.linuxbrew/bin/" ]; then
-  path+=("/home/linuxbrew/.linuxbrew/bin/")
-fi
 
 # init fnm
 if type fnm &>/dev/null; then
