@@ -42,6 +42,11 @@ else
 
   ## install git
   sudo apt install --no-install-recommends git --yes
+  ## install dependencies for pyenv
+  sudo apt install --no-install-recommends make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev --yes
+
+  ## install pyenv
+  git clone https://github.com/pyenv/pyenv.git ${HOME}/.pyenv
 
   ## install homebrew
   sudo apt install --no-install-recommends build-essential gcc --yes
@@ -75,13 +80,13 @@ else
 
   ## if fnm is installed
   if brew ls --versions fnm > /dev/null; then
+      ## install latest lts node.js via fnm
       echo "*** lets install latest node.js LTS"
       eval "$(fnm env)"
-      ## install latest lts node.js via fnm
       fnm install --lts
 
-      echo "*** install global node packages"
       ## install global node packages via npm
+      echo "*** install global node packages"
       npm install -g $(cat ${DOTFILES_DIR}/install/npmfile)
   fi
 

@@ -13,7 +13,8 @@ export ZSH="$HOME/.oh-my-zsh"
 
 # set PATH for brew
 if [[ -d "/home/linuxbrew/.linuxbrew/bin/" ]]; then
-  path+="/home/linuxbrew/.linuxbrew/bin/"
+  export PATH=/home/linuxbrew/.linuxbrew/bin:$PATH
+  export PATH=/home/linuxbrew/.linuxbrew/sbin:$PATH
   # export PATH
 
   # source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -142,8 +143,11 @@ if type fnm &>/dev/null; then
 fi
 
 # set autocomplete vor pyenv
-if type pyenv &>/dev/null; then
+if [[ -d "${HOME}/.pyenv" ]]; then
+  export PYENV_ROOT="$HOME/.pyenv"
+  export PATH=${PYENV_ROOT}/bin:$PATH
   eval "$(pyenv init -)"
+  # eval "$(pyenv init --path)"
 fi
 
 # init thefuck
