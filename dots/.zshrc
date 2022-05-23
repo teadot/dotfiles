@@ -124,15 +124,18 @@ if [ -d "/home/linuxbrew/.linuxbrew/bin/" ]; then
 fi
 
 # init fnm
-if type fnm &>/dev/null
-then
+if type fnm &>/dev/null; then
   eval "$(fnm env)"
 fi
 
 # set autocomplete vor pyenv
-if type pyenv &>/dev/null
-then
+if type pyenv &>/dev/null; then
   eval "$(pyenv init -)"
+fi
+
+# init thefuck
+if type thefuck &>/dev/null; then
+  eval $(thefuck --alias)
 fi
 
 # set envvars for dotnet
@@ -145,7 +148,6 @@ then
   then
     export DOTNET_ROOT="/home/linuxbrew/.linuxbrew/opt/dotnet/libexec"
   fi
-
 fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
