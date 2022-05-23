@@ -93,7 +93,6 @@ source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-# fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-autosuggestions
 
 plugins=(
   brew
@@ -159,9 +158,9 @@ then
   export DOTNET_CLI_TELEMETRY_OPTOUT=1
 
   ## if dotnet is installed via brew
-  if [[ -d "/home/linuxbrew/.linuxbrew/opt/dotnet/libexec/" ]];
+  if [[ -d "$(brew --prefix)/opt/dotnet/libexec/" ]];
   then
-    export DOTNET_ROOT="/home/linuxbrew/.linuxbrew/opt/dotnet/libexec"
+    export DOTNET_ROOT="$(brew --prefix)/opt/dotnet/libexec"
   fi
 fi
 
