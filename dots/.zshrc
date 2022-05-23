@@ -98,7 +98,6 @@ plugins=(
   brew
   docker
   git
-  git-auto-fetch
   kubectl
   ssh-agent
   zsh-autosuggestions

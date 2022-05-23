@@ -14,7 +14,8 @@ source install.sh
 
 ## Plugins
 
-### brew
+<details>
+  <summary>brew</summary>
 
 | Alias    | Command                               | Description                                                         |
 | -------- | ------------------------------------- | ------------------------------------------------------------------- |
@@ -28,7 +29,10 @@ source install.sh
 | `bcubo`  | `brew update && brew outdated --cask` | Update Homebrew data, then list outdated casks.                     |
 | `bcubc`  | `brew upgrade --cask && brew cleanup` | Update outdated casks, then run cleanup.                            |
 
-### docker
+</details>
+
+<details>
+  <summary>docker</summary>
 
 | Alias   | Command                     | Description                                                                              |
 | :------ | :-------------------------- | :--------------------------------------------------------------------------------------- |
@@ -67,7 +71,10 @@ source install.sh
 | dvls    | `docker volume ls`          | List all the volumes known to docker                                                     |
 | dvprune | `docker volume prune`       | Cleanup dangling volumes                                                                 |
 
-### git
+</details>
+
+<details>
+  <summary>git</summary>
 
 | Alias                | Command                                                                                                                                     |
 | :------------------- | :------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -249,7 +256,9 @@ source install.sh
 | gama                 | git am --abort                                                                                                                              |
 | gamscp               | git am --show-current-patch                                                                                                                 |
 
-### kubectl
+</details>
+<details>
+  <summary>kubectl</summary>
 
 | Alias    | Command                                            | Description                                                                                      |
 | :------- | :------------------------------------------------- | :----------------------------------------------------------------------------------------------- |
@@ -367,3 +376,5 @@ source install.sh
 | kej      | `kubectl edit job`                                 | Edit a Job in details                                                                            |
 | kdj      | `kubectl describe job`                             | Describe the Job                                                                                 |
 | kdelj    | `kubectl delete job`                               | Delete the Job                                                                                   |
+
+</details>
