@@ -85,6 +85,10 @@ else
       npm install -g $(cat ${DOTFILES_DIR}/install/npmfile)
   fi
 
+  ## set zsh as default shell
+  sudo echo "/home/linuxbrew/.linuxbrew/bin/zsh" >> /etc/shells
+  chsh -s /home/linuxbrew/.linuxbrew/bin/zsh
+
   ## remove unneeded packages
   sudo apt autoremove --yes
 fi
