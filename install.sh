@@ -40,18 +40,24 @@ else
   sudo apt upgrade --yes
   sudo apt dist-upgrade --yes
 
-  ## install git
-  sudo apt install --no-install-recommends git --yes
+  ## install git and zsh
+  sudo apt install --no-install-recommends git zsh --yes
   ## install dependencies for pyenv
   sudo apt install --no-install-recommends make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev --yes
 
   ## install pyenv
-  git clone https://github.com/pyenv/pyenv.git ${HOME}/.pyenv
+  if [[ ! -d "${HOME}/.pyenv" ]]; then
+    git clone https://github.com/pyenv/pyenv.git ${HOME}/.pyenv
+  else
+    git -C ${HOME}/.pyenv pull
+  fi
 
   ## install homebrew
   sudo apt install --no-install-recommends build-essential gcc --yes
-  curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | bash
-  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+  if [[ ! -d "/home/linuxbrew/.linuxbrew" ]]; then
+    curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | bash
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+  fi
 
   ## install stuff via homebrew
   brew bundle --file=${DOTFILES_DIR}/install/Brewfile || true
@@ -71,12 +77,27 @@ else
   done
   stow -vSt ${HOME} dots
 
-  ## install oh-my-zsh
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  if [[ ! -d "${HOME}/.oh-my-zsh" ]]; then
+    ## install oh-my-zsh
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended --keep-zshrc
+  else
+    git -C ${HOME}/.oh-my-zsh pull
+  fi
 
   ## install zsh plugins
-  git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-  git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions
+  ### autosuggestions
+  if [[ ! -d "${HOME}/.oh-my-zsh/custom/plugins/zsh-autosuggestions" ]]; then
+    git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+  else
+    git -C ${HOME}/.oh-my-zsh/custom/plugins/zsh-autosuggestions pull
+  fi
+
+  ### completions
+  if [[ ! -d "${HOME}/.oh-my-zsh/custom/plugins/zsh-completions" ]]; then
+    git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-completions
+  else
+    git -C ${HOME}/.oh-my-zsh/custom/plugins/zsh-completions pull
+  fi
 
   ## if fnm is installed
   if brew ls --versions fnm > /dev/null; then
@@ -91,8 +112,7 @@ else
   fi
 
   ## set zsh as default shell
-  sudo echo "/home/linuxbrew/.linuxbrew/bin/zsh" >> /etc/shells
-  chsh -s /home/linuxbrew/.linuxbrew/bin/zsh
+  sudo chsh -s $(which zsh) $(whoami)
 
   ## remove unneeded packages
   sudo apt autoremove --yes

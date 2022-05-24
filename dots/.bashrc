@@ -129,6 +129,11 @@ then
   eval "$(fnm env)"
 fi
 
+# autocomplete kubectl
+if type kubectl &>/dev/null; then
+  source <(kubectl completion zsh)
+fi
+
 # set PATH for brew
 if [ -d "/home/linuxbrew/.linuxbrew/bin/" ]; then
   export PATH="/home/linuxbrew/.linuxbrew/bin/":$PATH
