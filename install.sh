@@ -114,6 +114,11 @@ else
   ## set zsh as default shell
   sudo chsh -s $(which zsh) $(whoami)
 
+  ## generate ssh-key-pair for git repos
+  if [[ ! -f "${HOME}/.ssh/id_rsa_azure_devops" ]]; then
+    ssh-keygen -t rsa -b 4096 -f ${HOME}/.ssh/id_rsa_azure_devops -C "torben.christ@freudenberg.com" -N ""
+  fi
+
   ## remove unneeded packages
   sudo apt autoremove --yes
 fi
