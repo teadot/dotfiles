@@ -119,6 +119,9 @@ else
     ssh-keygen -t rsa -b 4096 -f ${HOME}/.ssh/id_rsa_azure_devops -C "torben.christ@freudenberg.com" -N ""
   fi
 
+  ## disable message of the day
+  touch ${HOME}/.hushlogin
+
   ## remove unneeded packages
   sudo apt autoremove --yes
 fi
