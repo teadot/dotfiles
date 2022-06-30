@@ -111,6 +111,12 @@ else
       npm install -g $(cat ${DOTFILES_DIR}/install/npmfile)
   fi
 
+  ## if tfswitch is installed
+  if brew ls --version tfswitch > /dev/null; then
+      # install latest terraform
+      tfswitch -u
+  fi
+
   ## set zsh as default shell
   sudo chsh -s $(which zsh) $(whoami)
 

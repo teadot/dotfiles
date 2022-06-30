@@ -15,17 +15,10 @@ export ZSH="$HOME/.oh-my-zsh"
 if [[ -d "/home/linuxbrew/.linuxbrew/bin/" ]]; then
   export PATH=/home/linuxbrew/.linuxbrew/bin:$PATH
   export PATH=/home/linuxbrew/.linuxbrew/sbin:$PATH
-  # export PATH
-
-  # source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-  # fpath+=$(brew --prefix)/share/zsh-completions
-
-  # rm -f ${HOME}/.zcompdump
-  # autoload -Uz compinit
-  # compinit
 fi
 
-
+# add user bin folder to PATH
+export PATH=$HOME/bin:$PATH
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
