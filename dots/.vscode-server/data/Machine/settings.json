@@ -40,7 +40,9 @@
         "bash": {
             "path": "bash",
             "icon": "terminal-bash",
-            "args": ["-li"]
+            "args": [
+                "-li"
+            ]
         },
         "zsh": {
             "path": "zsh"
@@ -121,14 +123,21 @@
     "redhat.telemetry.enabled": false,
     "yaml.format.enable": false,
     "kite.showWelcomeNotificationOnStartup": false,
+    "settingsSync.ignoredSettings": [
+        "-git.defaultCloneDirectory"
+    ],
     // language specific settings
     "[javascript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode",
-        "editor.rulers": [80]
+        "editor.rulers": [
+            80
+        ]
     },
     "[typescript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode",
-        "editor.rulers": [80]
+        "editor.rulers": [
+            80
+        ]
     },
     "[html]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -146,6 +155,8 @@
         "editor.suggest.insertMode": "replace",
     },
     "[python]": {
-        "editor.rulers": [79]
+        "editor.rulers": [
+            79
+        ]
     }
 }
