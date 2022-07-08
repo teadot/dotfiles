@@ -7,7 +7,7 @@
     "editor.accessibilitySupport": "off",
     "editor.formatOnSave": true,
     "editor.unicodeHighlight.invisibleCharacters": false,
-    "editor.fontSize": 14,
+    "editor.fontSize": 12,
     "editor.wordWrap": "on",
     // git 
     "git.ignoreMissingGitWarning": true,
@@ -20,9 +20,9 @@
     // "python.defaultInterpreterPath": "\\home\\torben\\.cache\\pypoetry\\virtualenvs\\poetry-test-KpRDvEpM-py3.8",
     "python.formatting.provider": "black",
     // remote container
-    // "remote.containers.dotfiles.installCommand": "~/.dotfiles/install.sh",
-    // "remote.containers.dotfiles.targetPath": "~/.dotfiles",
-    // "remote.containers.dotfiles.repository": "git@ssh.dev.azure.com:v3/TorbenChrist/dotfiles/dotfiles",
+    "remote.containers.dotfiles.installCommand": "~/.dotfiles/install.sh",
+    "remote.containers.dotfiles.targetPath": "~/.dotfiles",
+    "remote.containers.dotfiles.repository": "git@ssh.dev.azure.com:v3/TorbenChrist/dotfiles/dotfiles",
     "remote.containers.copyGitConfig": true,
     "remote.containers.defaultExtensions": [
         "eamodio.gitlens",
