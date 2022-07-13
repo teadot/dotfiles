@@ -34,8 +34,8 @@
     // "terminal.integrated.fontFamily": "consolas",
     "terminal.integrated.fontSize": 12,
     "terminal.integrated.defaultProfile.windows": "PowerShell",
-    "terminal.integrated.defaultProfile.linux": "bash",
-    "terminal.integrated.defaultProfile.osx": "bash",
+    "terminal.integrated.defaultProfile.linux": "zsh",
+    "terminal.integrated.defaultProfile.osx": "zsh",
     "terminal.integrated.profiles.linux": {
         "bash": {
             "path": "bash",
@@ -47,17 +47,10 @@
         "zsh": {
             "path": "zsh"
         },
-        "fish": {
-            "path": "fish"
-        },
         "tmux": {
             "path": "tmux",
             "icon": "terminal-tmux"
         },
-        "pwsh": {
-            "path": "pwsh",
-            "icon": "terminal-powershell"
-        }
     },
     "terminal.integrated.profiles.osx": {
         "bash": {
@@ -73,20 +66,10 @@
                 "-l"
             ]
         },
-        "fish": {
-            "path": "fish",
-            "args": [
-                "-l"
-            ]
-        },
         "tmux": {
             "path": "tmux",
             "icon": "terminal-tmux"
         },
-        "pwsh": {
-            "path": "pwsh",
-            "icon": "terminal-powershell"
-        }
     },
     "terminal.integrated.profiles.windows": {
         "PowerShell": {
