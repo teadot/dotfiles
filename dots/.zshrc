@@ -96,6 +96,7 @@ plugins=(
   ssh-agent
   zsh-autosuggestions
   zsh-completions
+  virtualenv
 )
 
 fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
