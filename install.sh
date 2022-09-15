@@ -41,8 +41,8 @@ else
   sudo apt upgrade --yes
   sudo apt dist-upgrade --yes
 
-  ## install git and zsh
-  sudo apt install --no-install-recommends git zsh --yes
+  ## install git, zsh, podman
+  sudo apt install --no-install-recommends git zsh podman --yes
   ## install dependencies for pyenv
   sudo apt install --no-install-recommends make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev --yes
 
