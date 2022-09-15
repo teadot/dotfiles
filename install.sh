@@ -25,9 +25,9 @@ else
   done &>/dev/null &
 
   ## setup wsl2 before start
-  if grep -qi wsl2 /proc/version; then
-    source ${DOTFILES_DIR}/install/wsl2.sh
-  fi
+  # if grep -qi wsl2 /proc/version; then
+  #   source ${DOTFILES_DIR}/install/wsl2.sh
+  # fi
 
   ## install latest git via ppa (https://git-scm.com/download/linux)
   if [[ "$VERSION_ID" == "16.04" ]]; then
@@ -41,10 +41,12 @@ else
   sudo apt upgrade --yes
   sudo apt dist-upgrade --yes
 
-  ## install git, zsh, podman
-  sudo apt install --no-install-recommends git zsh podman --yes
+  ## install git, zsh,
+  sudo apt install --no-install-recommends git zsh --yes
   ## install dependencies for pyenv
   sudo apt install --no-install-recommends make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev --yes
+  ## install podman
+  sudo apt install podman --yes
 
   ## install pyenv
   if [[ ! -d "${HOME}/.pyenv" ]]; then
