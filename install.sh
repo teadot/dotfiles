@@ -25,16 +25,17 @@ else
   done &>/dev/null &
 
   ## setup wsl2 before start
-  if grep -qi wsl2 /proc/version; then
-    source ${DOTFILES_DIR}/install/wsl2.sh
-  fi
+  # if grep -qi wsl2 /proc/version; then
+  #   source ${DOTFILES_DIR}/install/wsl2.sh
+  # fi
 
   ## install latest git via ppa (https://git-scm.com/download/linux)
-  if [[ "$VERSION_ID" == "16.04" ]]; then
-      sudo add-apt-repository ppa:git-core/ppa --yes
-  else
-      sudo add-apt-repository --ppa ppa:git-core/ppa --yes
-  fi
+  # if [[ "$VERSION_ID" == "16.04" ]]; then
+  #     sudo add-apt-repository ppa:git-core/ppa --yes
+  # else
+  #     sudo add-apt-repository --ppa ppa:git-core/ppa --yes
+  # fi
+  sudo add-apt-repository --ppa ppa:git-core/ppa --yes
 
   ## upgrade the system
   sudo apt update
