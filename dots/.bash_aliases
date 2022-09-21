@@ -42,6 +42,9 @@ alias bubo='brew update && brew outdated'
 alias bubu='bubo && bubc'
 alias buf='brew upgrade --formula'
 
+## Podman
+alias docker='podman'
+
 ## Docker
 alias dbl='docker build'
 alias dcin='docker container inspect'

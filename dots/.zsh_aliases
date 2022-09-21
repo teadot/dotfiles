@@ -1,1 +1,4 @@
 # custom zsh-aliases
+
+## Podman
+alias docker='podman'
