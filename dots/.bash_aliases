@@ -43,7 +43,7 @@ alias bubu='bubo && bubc'
 alias buf='brew upgrade --formula'
 
 ## Podman
-alias docker='podman'
+# alias docker='podman'
 
 ## Docker
 alias dbl='docker build'

@@ -18,7 +18,7 @@ if [[ -d "/home/linuxbrew/.linuxbrew/bin/" ]]; then
 fi
 
 # add user bin folder to PATH
-export PATH=$HOME/bin:$PATH
+export PATH=$HOME/.local/bin:$HOME/bin:$PATH
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -97,6 +97,7 @@ plugins=(
   zsh-autosuggestions
   zsh-completions
   virtualenv
+  terraform 
 )
 
 fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
@@ -171,3 +172,6 @@ fi
 
 # Load Angular CLI autocompletion.
 source <(ng completion script)
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C $HOME/.terraform.versions/terraform_1.3.0 terraform
