@@ -1,4 +1,5 @@
 # custom zsh-aliases
 
-#alias docker=podman
-#alias docker-compose=podman-compose
+## Podman
+
+# alias docker='podman'
