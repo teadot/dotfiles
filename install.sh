@@ -44,8 +44,6 @@ else
   sudo apt install --no-install-recommends git zsh --yes
   ## install dependencies for pyenv
   sudo apt install --no-install-recommends make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev --yes
-  ## install podman
-  # sudo apt install podman --yes
 
   ## install pyenv
   if [[ ! -d "${HOME}/.pyenv" ]]; then
