@@ -16,14 +16,15 @@ k9s:
     fullScreenLogs: false
     textWrap: false
     showTime: false
-  currentContext: aks_az5_rndhub_dev
-  currentCluster: aks_az5_rndhub_dev
+  currentContext: aks_az6_rndhubtest_test
+  currentCluster: aks_az6_rndhubtest_test
   clusters:
     aks_az5_rndhub_dev:
       namespace:
-        active: sp-mi
+        active: default
         lockFavorites: false
         favorites:
+        - sp-adm
         - all
         - sp-mi
         - default
@@ -41,15 +42,61 @@ k9s:
           memory: 100Mi
         labels: {}
       portForwardAddress: localhost
-    aks_az7_rndhubprod_prod:
+    aks_az6_rndhubtest_test:
       namespace:
-        active: all
+        active: default
         lockFavorites: false
         favorites:
         - all
         - default
       view:
-        active: context
+        active: namespace
+      featureGates:
+        nodeShell: false
+      shellPod:
+        image: busybox:1.35.0
+        command: []
+        args: []
+        namespace: default
+        limits:
+          cpu: 100m
+          memory: 100Mi
+        labels: {}
+      portForwardAddress: localhost
+    aks_az7_rndhubprod_prod:
+      namespace:
+        active: default
+        lockFavorites: false
+        favorites:
+        - all
+        - default
+      view:
+        active: pod
+      featureGates:
+        nodeShell: false
+      shellPod:
+        image: busybox:1.35.0
+        command: []
+        args: []
+        namespace: default
+        limits:
+          cpu: 100m
+          memory: 100Mi
+        labels: {}
+      portForwardAddress: localhost
+    aks_svc-mon_monitoring_prod:
+      namespace:
+        active: echoserver
+        lockFavorites: false
+        favorites:
+        - echoserver
+        - azure-vote-1653994858650
+        - elastic-apps
+        - elastic-system
+        - all
+        - default
+      view:
+        active: pod
       featureGates:
         nodeShell: false
       shellPod:
@@ -70,7 +117,7 @@ k9s:
         - all
         - default
       view:
-        active: context
+        active: pod
       featureGates:
         nodeShell: false
       shellPod:
