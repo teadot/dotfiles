@@ -76,6 +76,7 @@ else
     fi
   done
   stow -vSt ${HOME} dots
+  stow -vSt ${HOME}/bin bin
 
   if [[ ! -d "${HOME}/.oh-my-zsh" ]]; then
     ## install oh-my-zsh
