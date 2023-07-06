@@ -1,4 +1,15 @@
-az login
+#!/bin/bash
+
+ENV_FILE=${HOME}/bin/.env
+
+if [[ ! -f "$ENV_FILE" ]]; then
+    echo "Create file ~/bin/.env with variable FGROUP_TENANT_ID!"
+    exit 1
+fi
+
+source ~/bin/.env
+
+az login --tenant ${FGROUP_TENANT_ID} --output none
 az account set --subscription "az5"
 az aks get-credentials --resource-group rg_az5_aks_dev --name aks_az5_rndhub_dev --overwrite-existing
 az account set --subscription "az6"
