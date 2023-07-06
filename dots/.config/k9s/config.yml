@@ -16,8 +16,8 @@ k9s:
     fullScreenLogs: false
     textWrap: false
     showTime: false
-  currentContext: aks_az6_rndhubtest_test
-  currentCluster: aks_az6_rndhubtest_test
+  currentContext: rancher-desktop
+  currentCluster: rancher-desktop
   clusters:
     aks_az5_rndhub_dev:
       namespace:
@@ -114,10 +114,11 @@ k9s:
         active: all
         lockFavorites: false
         favorites:
+        - kube-public
         - all
         - default
       view:
-        active: pod
+        active: node
       featureGates:
         nodeShell: false
       shellPod:
