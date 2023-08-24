@@ -161,3 +161,5 @@ fix_wsl2_interop() {
     fi
   done
 }
+
+complete -C /home/torben/.terraform.versions/terraform_1.3.0 terraform
