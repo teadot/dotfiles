@@ -1,5 +1,5 @@
 sudo -v
 # update ubuntu
-apt update && sudo apt upgrade -y
+sudo apt update && sudo apt upgrade -y
 # update brew
 brew update && brew upgrade
