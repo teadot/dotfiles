@@ -1,3 +1,4 @@
 # custom zsh-aliases
 
 alias azlogin='~/bin/az_login.sh'
+alias wslupdate='~/bin/update_wsl.sh'
