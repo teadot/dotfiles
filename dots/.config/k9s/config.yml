@@ -16,14 +16,17 @@ k9s:
     fullScreenLogs: false
     textWrap: false
     showTime: false
-  currentContext: rancher-desktop
-  currentCluster: rancher-desktop
+  currentContext: aks_az5_rndhub_dev
+  currentCluster: aks_az5_rndhub_dev
   clusters:
     aks_az5_rndhub_dev:
       namespace:
-        active: default
+        active: sp-adm
         lockFavorites: false
         favorites:
+        - sp-mv
+        - keda
+        - sp-ado
         - sp-adm
         - all
         - sp-mi
@@ -65,9 +68,10 @@ k9s:
       portForwardAddress: localhost
     aks_az7_rndhubprod_prod:
       namespace:
-        active: default
+        active: sp-ado
         lockFavorites: false
         favorites:
+        - sp-ado
         - all
         - default
       view:
@@ -86,9 +90,10 @@ k9s:
       portForwardAddress: localhost
     aks_svc-mon_monitoring_prod:
       namespace:
-        active: echoserver
+        active: elastic-apps
         lockFavorites: false
         favorites:
+        - ingress-nginx
         - echoserver
         - azure-vote-1653994858650
         - elastic-apps
@@ -111,14 +116,14 @@ k9s:
       portForwardAddress: localhost
     rancher-desktop:
       namespace:
-        active: all
+        active: default
         lockFavorites: false
         favorites:
         - kube-public
         - all
         - default
       view:
-        active: node
+        active: pod
       featureGates:
         nodeShell: false
       shellPod:
