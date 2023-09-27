@@ -1,145 +1,131 @@
 {
-    // editor
-    "editor.fontFamily": "FiraCode Nerd Font Mono",
-    "editor.inlayHints.enabled": "on",
-    "editor.inlayHints.fontFamily": "FiraCode Nerd Font Mono",
-    "editor.inlayHints.fontSize": 8,
-    "editor.accessibilitySupport": "off",
-    "editor.formatOnSave": true,
-    "editor.unicodeHighlight.invisibleCharacters": false,
-    "editor.fontSize": 12,
-    "editor.wordWrap": "on",
-    // git 
-    "git.ignoreMissingGitWarning": true,
-    "git.enableSmartCommit": true,
-    "git.autofetch": true,
-    "git.confirmSync": false,
-    "git.defaultCloneDirectory": "~/projects",
-    // python
-    // "python.poetryPath": "$HOME/.poetry/bin/poetry",
-    // "python.defaultInterpreterPath": "\\home\\torben\\.cache\\pypoetry\\virtualenvs\\poetry-test-KpRDvEpM-py3.8",
-    "python.formatting.provider": "black",
-    // remote container
-    "dotfiles.installCommand": "~/.dotfiles/install_container.sh",
-    "dotfiles.targetPath": "~/.dotfiles",
-    "dotfiles.repository": "https://github.com/teadot/dotfiles.git",
-    "dev.containers.copyGitConfig": true,
-    "remote.containers.defaultExtensions": [
-        "eamodio.gitlens",
-        "mhutchie.git-graph",
-        "esbenp.prettier-vscode"
-    ],
-    // terminal
-    "terminal.explorerKind": "external",
-    // "terminal.integrated.fontFamily": "consolas",
-    "terminal.integrated.fontSize": 12,
-    "terminal.integrated.defaultProfile.windows": "PowerShell",
-    "terminal.integrated.defaultProfile.linux": "zsh",
-    "terminal.integrated.defaultProfile.osx": "zsh",
-    "terminal.integrated.profiles.linux": {
-        "bash": {
-            "path": "bash",
-            "icon": "terminal-bash",
-            "args": [
-                "-li"
-            ]
-        },
-        "zsh": {
-            "path": "zsh"
-        },
-        "tmux": {
-            "path": "tmux",
-            "icon": "terminal-tmux"
-        },
+  // editor
+  "editor.fontFamily": "FiraCode Nerd Font Mono",
+  "editor.inlayHints.enabled": "on",
+  "editor.inlayHints.fontFamily": "FiraCode Nerd Font Mono",
+  "editor.inlayHints.fontSize": 8,
+  "editor.accessibilitySupport": "off",
+  "editor.formatOnSave": true,
+  "editor.unicodeHighlight.invisibleCharacters": false,
+  "editor.fontSize": 12,
+  "editor.wordWrap": "on",
+  // git
+  "git.ignoreMissingGitWarning": true,
+  "git.enableSmartCommit": true,
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "git.defaultCloneDirectory": "~/projects",
+  // python
+  // "python.poetryPath": "$HOME/.poetry/bin/poetry",
+  // "python.defaultInterpreterPath": "\\home\\torben\\.cache\\pypoetry\\virtualenvs\\poetry-test-KpRDvEpM-py3.8",
+  "python.formatting.provider": "black",
+  // remote container
+  "dotfiles.installCommand": "~/.dotfiles/install_container.sh",
+  "dotfiles.targetPath": "~/.dotfiles",
+  "dotfiles.repository": "https://github.com/teadot/dotfiles.git",
+  "dev.containers.copyGitConfig": true,
+  "remote.containers.defaultExtensions": [
+    "eamodio.gitlens",
+    "mhutchie.git-graph",
+    "esbenp.prettier-vscode"
+  ],
+  // terminal
+  "terminal.explorerKind": "external",
+  // "terminal.integrated.fontFamily": "consolas",
+  "terminal.integrated.fontSize": 12,
+  "terminal.integrated.defaultProfile.windows": "PowerShell",
+  "terminal.integrated.defaultProfile.linux": "zsh",
+  "terminal.integrated.defaultProfile.osx": "zsh",
+  "terminal.integrated.profiles.linux": {
+    "bash": {
+      "path": "bash",
+      "icon": "terminal-bash",
+      "args": ["-li"]
     },
-    "terminal.integrated.profiles.osx": {
-        "bash": {
-            "path": "bash",
-            "args": [
-                "-l"
-            ],
-            "icon": "terminal-bash"
-        },
-        "zsh": {
-            "path": "zsh",
-            "args": [
-                "-l"
-            ]
-        },
-        "tmux": {
-            "path": "tmux",
-            "icon": "terminal-tmux"
-        },
+    "zsh": {
+      "path": "zsh"
     },
-    "terminal.integrated.profiles.windows": {
-        "PowerShell": {
-            "source": "PowerShell",
-            "icon": "terminal-powershell"
-        },
-        "Command Prompt": {
-            "path": [
-                "${env:windir}\\Sysnative\\cmd.exe",
-                "${env:windir}\\System32\\cmd.exe"
-            ],
-            "args": [],
-            "icon": "terminal-cmd"
-        },
-        "Git Bash": {
-            "source": "Git Bash"
-        }
-    },
-    // workbench
-    "workbench.editorAssociations": {
-        "*.ipynb": "jupyter-notebook"
-    },
-    "workbench.productIconTheme": "fluent-icons",
-    "workbench.iconTheme": "material-icon-theme",
-    "workbench.colorTheme": "One Monokai",
-    // explorer
-    "explorer.confirmDragAndDrop": false,
-    // files
-    "files.eol": "\n",
-    // window
-    "window.restoreWindows": "none",
-    // extensions
-    "extensions.ignoreRecommendations": true,
-    "redhat.telemetry.enabled": false,
-    "yaml.format.enable": false,
-    "kite.showWelcomeNotificationOnStartup": false,
-    "settingsSync.ignoredSettings": [
-        "-git.defaultCloneDirectory"
-    ],
-    // language specific settings
-    "[javascript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode",
-        "editor.rulers": [
-            80
-        ]
-    },
-    "[typescript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode",
-        "editor.rulers": [
-            80
-        ]
-    },
-    "[html]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode",
-        "editor.suggest.insertMode": "replace",
-    },
-    "[css]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode",
-        "editor.suggest.insertMode": "replace",
-    },
-    "[json]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode",
-        "editor.quickSuggestions": {
-            "strings": true
-        },
-        "editor.suggest.insertMode": "replace",
-    },
-    "[python]": {
-        "editor.rulers": [
-            79
-        ]
+    "tmux": {
+      "path": "tmux",
+      "icon": "terminal-tmux"
     }
+  },
+  "terminal.integrated.profiles.osx": {
+    "bash": {
+      "path": "bash",
+      "args": ["-l"],
+      "icon": "terminal-bash"
+    },
+    "zsh": {
+      "path": "zsh",
+      "args": ["-l"]
+    },
+    "tmux": {
+      "path": "tmux",
+      "icon": "terminal-tmux"
+    }
+  },
+  "terminal.integrated.profiles.windows": {
+    "PowerShell": {
+      "source": "PowerShell",
+      "icon": "terminal-powershell"
+    },
+    "Command Prompt": {
+      "path": [
+        "${env:windir}\\Sysnative\\cmd.exe",
+        "${env:windir}\\System32\\cmd.exe"
+      ],
+      "args": [],
+      "icon": "terminal-cmd"
+    },
+    "Git Bash": {
+      "source": "Git Bash"
+    }
+  },
+  // workbench
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter-notebook"
+  },
+  "workbench.productIconTheme": "fluent-icons",
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.colorTheme": "One Dark Pro Darker",
+  // explorer
+  "explorer.confirmDragAndDrop": false,
+  // files
+  "files.eol": "\n",
+  // window
+  "window.restoreWindows": "none",
+  // extensions
+  "extensions.ignoreRecommendations": true,
+  "redhat.telemetry.enabled": false,
+  "yaml.format.enable": false,
+  "kite.showWelcomeNotificationOnStartup": false,
+  "settingsSync.ignoredSettings": ["-git.defaultCloneDirectory"],
+  // language specific settings
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.rulers": [80]
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.rulers": [80]
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.suggest.insertMode": "replace"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.suggest.insertMode": "replace"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.quickSuggestions": {
+      "strings": true
+    },
+    "editor.suggest.insertMode": "replace"
+  },
+  "[python]": {
+    "editor.rulers": [79]
+  }
 }
