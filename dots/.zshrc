@@ -164,7 +164,7 @@ fi
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Load Angular CLI autocompletion.
-source <(ng completion script)
+# source <(ng completion script)
 
 autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C $HOME/.terraform.versions/terraform_1.3.0 terraform
+# complete -o nospace -C $HOME/.terraform.versions/terraform_1.3.0 terraform
