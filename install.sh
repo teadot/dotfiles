@@ -3,13 +3,7 @@
 ## export dotfiles path
 export DOTFILES_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
-  # curl -L https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh > ${HOME}/.bash_git
-  # cp ${DOTFILES_DIR}/dots/.prompt ${HOME}/.prompt
-  # cp ${DOTFILES_DIR}/dots/.bash_aliases ${HOME}/.bash_aliases
-  # echo "source ${HOME}/.bash_git; source ${HOME}/.prompt; source ${HOME}/.bash_aliases" > ${HOME}/.bashrc
-## any else unix system
-# else
-  ## to get version of os
+## to get version of os
 source /etc/os-release
 
 ## Ask for sudo password upfront.
@@ -22,17 +16,6 @@ while true; do
     kill -0 "$$" || exit
 done &>/dev/null &
 
-## setup wsl2 before start
-# if grep -qi wsl2 /proc/version; then
-#   source ${DOTFILES_DIR}/install/wsl2.sh
-# fi
-
-## install latest git via ppa (https://git-scm.com/download/linux)
-# if [[ "$VERSION_ID" == "16.04" ]]; then
-#     sudo add-apt-repository ppa:git-core/ppa --yes
-# else
-#     sudo add-apt-repository --ppa ppa:git-core/ppa --yes
-# fi
 sudo add-apt-repository --ppa ppa:git-core/ppa --yes
 
 ## upgrade the system
@@ -52,6 +35,13 @@ else
   git -C ${HOME}/.pyenv pull
 fi
 
+## dependencies for rancher desktop
+if [[ -f "/mnt/c/Users/F22ChrTor/.kube/config" ]]; then
+  sudo apt install --no-install-recommends libsecret-1-0 --yes
+  rm -f ${HOME}/.kube/config
+  ln -s /mnt/c/Users/F22ChrTor/.kube/config ${HOME}/.kube/config
+fi
+
 ## install homebrew
 sudo apt install --no-install-recommends build-essential gcc --yes
 if [[ ! -d "/home/linuxbrew/.linuxbrew" ]]; then
@@ -64,8 +54,8 @@ brew bundle --file=${DOTFILES_DIR}/install/Brewfile || true
 
 ## check if stow is installed
 if ! brew ls --version stow > /dev/null; then
-    echo "*** Install stow to link dotfiles"  
-    brew install stow
+  echo "*** Install stow to link dotfiles"  
+  brew install stow
 fi
 
 ## link dotfiles
@@ -102,20 +92,20 @@ fi
 
 ## if fnm is installed
 if brew ls --versions fnm > /dev/null; then
-    ## install latest lts node.js via fnm
-    echo "*** lets install latest node.js LTS"
-    eval "$(fnm env)"
-    fnm install --lts
+  ## install latest lts node.js via fnm
+  echo "*** lets install latest node.js LTS"
+  eval "$(fnm env)"
+  fnm install --lts
 
-    ## install global node packages via npm
-    echo "*** install global node packages"
-    npm install -g $(cat ${DOTFILES_DIR}/install/npmfile)
+  ## install global node packages via npm
+  echo "*** install global node packages"
+  npm install -g $(cat ${DOTFILES_DIR}/install/npmfile)
 fi
 
 ## if tfswitch is installed
 if brew ls --version tfswitch > /dev/null; then
-    # install latest terraform
-    tfswitch -u
+  # install latest terraform
+  tfswitch -u
 fi
 
 ## set zsh as default shell
@@ -131,4 +121,3 @@ touch ${HOME}/.hushlogin
 
 ## remove unneeded packages
 sudo apt autoremove --yes
-# fi
