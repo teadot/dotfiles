@@ -1,4 +1,5 @@
 k9s:
+  liveViewAutoRefresh: false
   refreshRate: 2
   maxConnRetry: 5
   enableMouse: false
@@ -98,28 +99,6 @@ k9s:
         - azure-vote-1653994858650
         - elastic-apps
         - elastic-system
-        - all
-        - default
-      view:
-        active: pod
-      featureGates:
-        nodeShell: false
-      shellPod:
-        image: busybox:1.35.0
-        command: []
-        args: []
-        namespace: default
-        limits:
-          cpu: 100m
-          memory: 100Mi
-        labels: {}
-      portForwardAddress: localhost
-    rancher-desktop:
-      namespace:
-        active: default
-        lockFavorites: false
-        favorites:
-        - kube-public
         - all
         - default
       view:

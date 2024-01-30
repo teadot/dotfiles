@@ -10,6 +10,7 @@
   "editor.fontSize": 12,
   "editor.wordWrap": "on",
   // git
+
   "git.ignoreMissingGitWarning": true,
   "git.enableSmartCommit": true,
   "git.autofetch": true,
