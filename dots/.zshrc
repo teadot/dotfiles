@@ -25,7 +25,7 @@ export PATH=$HOME/.local/bin:$HOME/bin:$PATH
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 # ZSH_THEME="powerlevel10k/powerlevel10k"
-source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme
+source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -164,7 +164,10 @@ fi
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Load Angular CLI autocompletion.
-source <(ng completion script)
+if type ng &>/dev/null && [ "$(which ng)" = "$(brew --prefix)/bin/ng" ]; then
+  source <(ng completion script)
+fi
+
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C $HOME/.terraform.versions/terraform_1.3.0 terraform
