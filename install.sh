@@ -105,7 +105,8 @@ if brew ls --versions fnm > /dev/null; then
     ## install latest lts node.js via fnm
     echo "*** lets install latest node.js LTS"
     eval "$(fnm env)"
-    fnm install --lts
+    fnm install lts-latest
+    fnm default lts-latest
 
     ## install global node packages via npm
     echo "*** install global node packages"

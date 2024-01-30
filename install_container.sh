@@ -22,7 +22,6 @@ if [ -f "$FILE" ]; then
       cp ${DOTFILES_DIR}/dots/.prompt ${HOME}/.prompt
       cp ${DOTFILES_DIR}/dots/.bash_aliases ${HOME}/.bash_aliases
       echo "source ${HOME}/.bash_git; source ${HOME}/.prompt; source ${HOME}/.bash_aliases" > ${HOME}/.bashrc
-
     fi
 
 fi

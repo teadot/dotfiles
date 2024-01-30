@@ -1,13 +1,21 @@
 k9s:
+  liveViewAutoRefresh: false
   refreshRate: 2
   maxConnRetry: 5
   enableMouse: false
+  enableImageScan: false
   headless: false
   logoless: false
   crumbsless: false
   readOnly: false
   noExitOnCtrlC: false
   noIcons: false
+  shellPod:
+    image: busybox:1.35.0
+    namespace: default
+    limits:
+      cpu: 100m
+      memory: 100Mi
   skipLatestRevCheck: false
   logger:
     tail: 100
@@ -18,131 +26,81 @@ k9s:
     showTime: false
   currentContext: aks_az5_rndhub_dev
   currentCluster: aks_az5_rndhub_dev
+  keepMissingClusters: false
   clusters:
     aks_az5_rndhub_dev:
       namespace:
-        active: rndhub-services
+        active: mps
         lockFavorites: false
         favorites:
-        - rndhub-services
-        - seal
-        - sp-mv
-        - keda
-        - sp-ado
-        - sp-adm
-        - all
-        - sp-mi
-        - default
+          - mps
+          - marketplace
+          - mongodb-demo
+          - sp-mi
+          - seal
+          - ingress-nginx
+          - rndhub-services
+          - rndhub
+          - fams
       view:
         active: pods
       featureGates:
         nodeShell: false
-      shellPod:
-        image: busybox:1.35.0
-        command: []
-        args: []
-        namespace: default
-        limits:
-          cpu: 100m
-          memory: 100Mi
-        labels: {}
       portForwardAddress: localhost
     aks_az6_rndhubtest_test:
       namespace:
         active: seal
         lockFavorites: false
         favorites:
-        - seal
-        - sp-mi
-        - bot-services
-        - all
-        - default
+          - all
+          - sp-mv
+          - sp-mi
+          - seal
+          - fams
+          - fti-da
+          - ingress-nginx
+          - iot-lab
+          - tigera-operator
+      view:
+        active: pods
+      featureGates:
+        nodeShell: false
+      portForwardAddress: localhost
+    aks_az7_rndhubprod_prod:
+      namespace:
+        active: ingress-nginx
+        lockFavorites: false
+        favorites:
+          - ingress-nginx
+          - all
+          - bot-services
+          - calico-system
+          - default
+          - elastic-apps
+          - elastic-system
+          - fams
+          - fti-da
       view:
         active: pod
       featureGates:
         nodeShell: false
-      shellPod:
-        image: busybox:1.35.0
-        command: []
-        args: []
-        namespace: default
-        limits:
-          cpu: 100m
-          memory: 100Mi
-        labels: {}
-      portForwardAddress: localhost
-    aks_az7_rndhubprod_prod:
-      namespace:
-        active: all
-        lockFavorites: false
-        favorites:
-        - rndhub
-        - rndhub-services
-        - sp-mi
-        - sp-ado
-        - all
-        - default
-      view:
-        active: node
-      featureGates:
-        nodeShell: false
-      shellPod:
-        image: busybox:1.35.0
-        command: []
-        args: []
-        namespace: default
-        limits:
-          cpu: 100m
-          memory: 100Mi
-        labels: {}
       portForwardAddress: localhost
     aks_svc-mon_monitoring_prod:
       namespace:
         active: elastic-apps
         lockFavorites: false
         favorites:
-        - ingress-nginx
-        - echoserver
-        - azure-vote-1653994858650
-        - elastic-apps
-        - elastic-system
-        - all
-        - default
+          - ingress-nginx
+          - echoserver
+          - azure-vote-1653994858650
+          - elastic-apps
+          - elastic-system
+          - all
+          - default
       view:
         active: pod
       featureGates:
         nodeShell: false
-      shellPod:
-        image: busybox:1.35.0
-        command: []
-        args: []
-        namespace: default
-        limits:
-          cpu: 100m
-          memory: 100Mi
-        labels: {}
-      portForwardAddress: localhost
-    rancher-desktop:
-      namespace:
-        active: default
-        lockFavorites: false
-        favorites:
-        - kube-public
-        - all
-        - default
-      view:
-        active: pod
-      featureGates:
-        nodeShell: false
-      shellPod:
-        image: busybox:1.35.0
-        command: []
-        args: []
-        namespace: default
-        limits:
-          cpu: 100m
-          memory: 100Mi
-        labels: {}
       portForwardAddress: localhost
   thresholds:
     cpu:
@@ -152,3 +110,4 @@ k9s:
       critical: 90
       warn: 70
   screenDumpDir: /tmp/k9s-screens-torben
+  disablePodCounting: false

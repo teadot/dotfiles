@@ -2,3 +2,4 @@
 
 alias azlogin='~/bin/az_login.sh'
 alias wslupdate='~/bin/update_wsl.sh'
+alias git-rm-orphanedbranches="git fetch -p && git branch -vv | grep gone | cut -d' ' -f 3 | grep . | xargs git branch -D"

@@ -57,3 +57,5 @@
 	changeHunkIndicators = true
 [safe]
 	directory = /home/torben/projects/privat/fcc-courses/nestjs
+#[credential]
+#	helper = manager-core
