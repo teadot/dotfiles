@@ -22,9 +22,11 @@ k9s:
   clusters:
     aks_az5_rndhub_dev:
       namespace:
-        active: sp-adm
+        active: rndhub-services
         lockFavorites: false
         favorites:
+        - rndhub-services
+        - seal
         - sp-mv
         - keda
         - sp-ado
@@ -48,13 +50,16 @@ k9s:
       portForwardAddress: localhost
     aks_az6_rndhubtest_test:
       namespace:
-        active: default
+        active: seal
         lockFavorites: false
         favorites:
+        - seal
+        - sp-mi
+        - bot-services
         - all
         - default
       view:
-        active: namespace
+        active: pod
       featureGates:
         nodeShell: false
       shellPod:
@@ -69,14 +74,17 @@ k9s:
       portForwardAddress: localhost
     aks_az7_rndhubprod_prod:
       namespace:
-        active: sp-ado
+        active: all
         lockFavorites: false
         favorites:
+        - rndhub
+        - rndhub-services
+        - sp-mi
         - sp-ado
         - all
         - default
       view:
-        active: pod
+        active: node
       featureGates:
         nodeShell: false
       shellPod:

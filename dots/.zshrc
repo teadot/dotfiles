@@ -170,4 +170,4 @@ fi
 
 
 autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C $HOME/.terraform.versions/terraform_1.3.0 terraform
+# complete -o nospace -C $HOME/.terraform.versions/terraform_1.3.0 terraform
