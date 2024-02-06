@@ -168,6 +168,9 @@ if type ng &>/dev/null && [ "$(which ng)" = "$(brew --prefix)/bin/ng" ]; then
   source <(ng completion script)
 fi
 
+# Add krew to PATH 
+if type kubectl-krew &>/dev/null; then
+  export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+fi
 
 autoload -U +X bashcompinit && bashcompinit
-# complete -o nospace -C $HOME/.terraform.versions/terraform_1.3.0 terraform
