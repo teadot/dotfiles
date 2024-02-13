@@ -109,6 +109,27 @@ if brew ls --version tfswitch > /dev/null; then
   tfswitch -u
 fi
 
+## if az cli is installed
+if brew ls --version az > /dev/null; then
+  # Pfad zur Textdatei mit den Extension-Namen
+  AZ_EXT_LIST="./install/az_extensions.txt"
+
+  # Überprüfen, ob die Datei existiert und lesbar ist
+  if [ ! -r "$AZ_EXT_LIST" ]; then
+      echo "File $AZ_EXT_LIST does not exist or is not readable."
+      exit 1
+  fi
+
+  # Schleife zum Lesen der Datei und Installation der Erweiterungen
+  while IFS= read -r EXT_NAME || [ -n "$EXT_NAME" ]; do
+      # Überprüfen, ob der Extension-Name nicht leer ist
+      if [ -n "$EXT_NAME" ]; then
+          # Installation der Erweiterung
+          az extension add --name "$EXT_NAME"
+      fi
+  done < "$AZ_EXT_LIST"
+fi
+
 ## set zsh as default shell
 sudo chsh -s $(which zsh) $(whoami)
 
