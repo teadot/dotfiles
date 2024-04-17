@@ -17,7 +17,7 @@ if [ -f "$FILE" ]; then
 
       ENV=${HOME}/.profile; export ENV
 
-    elif [ "$ID" = "ubuntu" ]; then
+    elif [ "$ID" = "ubuntu" ] || [ "$ID" = "debian" ]; then
       curl -L https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh > ${HOME}/.bash_git
       cp ${DOTFILES_DIR}/dots/.prompt ${HOME}/.prompt
       cp ${DOTFILES_DIR}/dots/.bash_aliases ${HOME}/.bash_aliases
