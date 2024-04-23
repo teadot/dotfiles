@@ -65,8 +65,7 @@ for file in $files; do
     rm ${HOME}/${file}
   fi
 done
-stow -vSt ${HOME} dots
-stow -vSt ${HOME}/bin bin
+stow -vSt ${HOME} dots && stow -vSt ${HOME}/bin bin
 
 if [[ ! -d "${HOME}/.oh-my-zsh" ]]; then
   ## install oh-my-zsh
