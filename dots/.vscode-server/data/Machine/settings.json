@@ -89,7 +89,7 @@
   },
   "workbench.productIconTheme": "fluent-icons",
   "workbench.iconTheme": "material-icon-theme",
-  "workbench.colorTheme": "One Dark Pro Darker",
+  "workbench.colorTheme": "One Monokai",
   // explorer
   "explorer.confirmDragAndDrop": false,
   // files
