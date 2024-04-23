@@ -1,7 +1,8 @@
 #!/usr/bin/env sh
 
 ## export dotfiles path
-export DOTFILES_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+# export DOTFILES_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+export DOTFILES_DIR=${HOME}/.dotfiles
 
 FILE=/etc/os-release
 
