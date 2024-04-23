@@ -27,6 +27,8 @@ sudo apt dist-upgrade --yes
 sudo apt install --no-install-recommends git zsh --yes
 ## install dependencies for pyenv
 sudo apt install --no-install-recommends make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev --yes
+## set locales
+update-locale "LANG=en_US.UTF-8" && locale-gen --purge "en_US.UTF-8" && sudo dpkg-reconfigure --frontend noninteractive locales
 
 ## install pyenv
 if [[ ! -d "${HOME}/.pyenv" ]]; then
