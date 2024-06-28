@@ -26,6 +26,15 @@ login_fst() {
     az login --tenant ${FST_TENANT_ID} --output none
     az account set --subscription "bdff5ebf-6ec5-48f1-b61c-65619922a818"
     az aks get-credentials --resource-group prd-eladb-rg-aks --name prd-eladb-aks-cluster --overwrite-existing
+
+    kubelogin convert-kubeconfig -l azurecli
+}
+
+login_fpm() {
+    check_env_var "FPM_TENANT_ID"
+    az login --tenant ${FPM_TENANT_ID} --output none
+    az account set --subscription "7a655048-2727-4a28-9e2c-cf6ad2bd6290" # sub-landingzones-fpm
+    # az aks get-credentials --resource-group prd-eladb-rg-aks --name prd-eladb-aks-cluster --overwrite-existing
 }
 
 login_fgroup() {
@@ -39,15 +48,28 @@ login_fgroup() {
     az aks get-credentials --resource-group rg_svc-mon_aks_prod --name aks_svc-mon_monitoring_prod --overwrite-existing
     az account set --subscription "az5"
     az aks get-credentials --resource-group rg_az5_aks_dev --name aks_az5_rndhub_dev --overwrite-existing
+
+    kubelogin convert-kubeconfig -l azurecli
 }
+
+login_dev() {
+    check_env_var "TC_FREUDENBERG_TENANT_ID"
+    az login --tenant ${TC_FREUDENBERG_TENANT_ID} --output none
+    az account set --subscription "TC_DEV"
+}
+
 
 if [[ "$1" == "FST" ]]; then
     ## FST
     login_fst
+elif [[ "$1" == "FPM" ]]; then
+    ## FPM
+    login_fpm
+elif [[ "$1" == "DEV" ]]; then
+    ## VS Subscription
+    login_dev
 else
     ## FGROUP
     login_fgroup
 fi
-
-kubelogin convert-kubeconfig -l azurecli
 
