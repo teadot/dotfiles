@@ -86,11 +86,14 @@
   },
   // workbench
   "workbench.editorAssociations": {
-    "*.ipynb": "jupyter-notebook"
+    "*.ipynb": "jupyter-notebook",
+    "*.avdl": "default",
+    "*.avsc": "default",
+    "*.avro ": "default"
   },
   "workbench.productIconTheme": "fluent-icons",
   "workbench.iconTheme": "material-icon-theme",
-  "workbench.colorTheme": "One Monokai",
+  // "workbench.colorTheme": "One Dark Pro Flat",
   // explorer
   "explorer.confirmDragAndDrop": false,
   // files
