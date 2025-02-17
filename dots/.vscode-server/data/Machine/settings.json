@@ -27,7 +27,6 @@
   "dotfiles.repository": "https://github.com/teadot/dotfiles.git",
   "dev.containers.copyGitConfig": true,
   "remote.containers.defaultExtensions": [
-    "eamodio.gitlens",
     "mhutchie.git-graph",
     "esbenp.prettier-vscode"
   ],
