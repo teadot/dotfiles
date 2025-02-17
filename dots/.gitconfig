@@ -57,8 +57,8 @@
 	changeHunkIndicators = true
 [safe]
 	directory = /home/torben/projects/privat/fcc-courses/nestjs
-#[credential]
-#	helper = manager-core
 [credential]
 	helper = /mnt/c/Program\\ Files/Git/mingw64/bin/git-credential-manager.exe
+	useHttpPath = true
+[credential "https://dev.azure.com"]
 	useHttpPath = true
